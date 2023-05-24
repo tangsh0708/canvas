@@ -11,7 +11,7 @@
   </div>
   <div @mousewheel="mouseWheel">
     <canvas id="canvas" width="1040" height="40" style="padding: 20px"></canvas>
-    <canvas id="canvasCenter" width="1040" height="300" style="padding: 0 20px"></canvas>
+    <canvas id="canvasCenter" width="1040" height="440" style="padding: 0 20px"></canvas>
     <canvas id="canvasTwo" width="1040" height="40" style="padding: 20px"></canvas>
   </div>
 </template>
@@ -117,21 +117,55 @@ const radius = 10;
 const drawFun = (canvasCenter, ctxCenter) => {
   const h = canvasCenter.height
   ctxCenter.clearRect(0, 0, canvasCenter.width, canvasCenter.height)
-  drawCircle(ctxCenter, startX + (1 - 1) * w, h / 2, '1')
-  drawCircle(ctxCenter, startX + (59 - 1) * w, h / 2, '2')
-  drawArrow(ctxCenter, startX + radius, h / 2, (59 - 1) * w + radius, h / 2, 1, '#333', 59 * w, 59, h / 2, 'A', 0)
-  drawCircle(ctxCenter, startX + (59 + 20 - 1) * w, h / 2 - 100, '16')
-  drawArrow(ctxCenter, startX + (59 - 1) * w, h / 2 - radius, startX + (79 - 1) * w - radius, h / 2 - 100, 1, '#333', 20 * w, 20, h / 2, 'B', 0)
+  // drawCircle(ctxCenter, startX + (1 - 1) * w, h / 2, '1')
+  drawCircle(ctxCenter, startX + (59 - 1) * w, h / 2, '15')
+  // drawArrow(ctxCenter, startX + radius, h / 2, (59 - 1) * w + radius, h / 2, 1, '#333', 59 * w, 59, h / 2, 'A', 0)
+  drawCircle(ctxCenter, startX + (59 + 20 - 1) * w, h / 2 - 50, '16')
+  drawArrow(ctxCenter, startX + (59 - 1) * w, h / 2 - radius, startX + (79 - 1) * w - radius, h / 2 - 50, 1, '#333', 20 * w, 20, h / 2, 'B', 0)
   drawCircle(ctxCenter, startX + (59 + 61 - 1) * w, h / 2, '18')
   drawArrow(ctxCenter, startX + (59 - 1) * w + radius, h / 2, startX + (59 + 61 - 1) * w - radius, h / 2, 1, '#333', 61 * w, 61, h / 2, 'D', 0)
-  drawCircle(ctxCenter, startX + (59 + 20 + 28 + 13 - 1) * w, h / 2 - 100, '17')
-  drawArrow(ctxCenter, startX + (59 - 1) * w, h / 2 + radius, startX + (59 + 45 + 16 - 1) * w - radius, h / 2 + 100, 1, '#333', 45 * w, 45, h / 2, 'E', 16)
-  drawCircle(ctxCenter, startX + (59 + 45 + 16 - 1) * w, h / 2 + 100 , '19')
+  drawCircle(ctxCenter, startX + (59 + 20 + 28 + 13 - 1) * w, h / 2 - 50, '17')
+  drawArrow(ctxCenter, startX + (59 - 1) * w, h / 2 + radius, startX + (59 + 45 + 16 - 1) * w - radius, h / 2 + 50, 1, '#333', 45 * w, 45, h / 2, 'E', 16)
+  drawCircle(ctxCenter, startX + (59 + 45 + 16 - 1) * w, h / 2 + 50 , '19')
   drawCircle(ctxCenter, startX + (59 + 61 + 31 - 1) * w, h / 2, '20')
-  drawArrow(ctxCenter, startX + (59 + 20 - 1) * w + radius, h / 2 - 100, startX + (59 + 20 + 28 + 13 - 1) * w - radius, h / 2 - 100, 1, '#333', 28 * w, 28, h / 2, 'C', 13)
-  drawArrow(ctxCenter, startX + (59 + 20 + 28 + 13 - 1) * w, h / 2 - 100 + radius, startX + (59 + 61 - 1) * w, h / 2 - radius, 1, '#333', 0, 0, h / 2, '', 1)
-  drawArrow(ctxCenter, startX + (59 + 45 + 16 - 1) * w, h / 2 + 100 - radius, startX + (59 + 61 - 1) * w, h / 2 + radius, 1, '#333', 0 , 0 , h / 2, '', 1)
+  drawArrow(ctxCenter, startX + (59 + 20 - 1) * w + radius, h / 2 - 50, startX + (59 + 20 + 28 + 13 - 1) * w - radius, h / 2 - 50, 1, '#333', 28 * w, 28, h / 2, 'C', 13)
+  drawArrow(ctxCenter, startX + (59 + 20 + 28 + 13 - 1) * w, h / 2 - 50 + radius, startX + (59 + 61 - 1) * w, h / 2 - radius, 1, '#333', 0, 0, h / 2, '', 1)
+  drawArrow(ctxCenter, startX + (59 + 45 + 16 - 1) * w, h / 2 + 50 - radius, startX + (59 + 61 - 1) * w, h / 2 + radius, 1, '#333', 0 , 0 , h / 2, '', 1)
   drawArrow(ctxCenter, startX + (59 + 61 - 1) * w + radius, h / 2, startX + (59 + 61 + 31 - 1) * w- radius, h / 2, 1, '#333', 31 * w, 31, h / 2, 'F', 0)
+
+  drawCircle(ctxCenter, startX + (1 - 1) * w, h / 2, '2')
+  drawCircle(ctxCenter, startX + (7 - 1) * w, h / 2, '3')
+  drawArrow(ctxCenter, startX + radius, h / 2, (7 - 1) * w + radius, h / 2, 1, '#333', 59 * w, 0, h / 2, '', 0)
+  drawCircle(ctxCenter, startX + (7 - 1 + 40) * w, h / 2 - 100, '5')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 - radius, startX + (7 - 1 + 40) * w - radius, h / 2 - 100, 1, '#333', 40 * w, 40, h / 2, '3', 0)
+  drawCircle(ctxCenter, startX + (7 - 1 + 40) * w, h / 2 - 50, '4')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 - radius, startX + (7 - 1 + 40) * w - radius, h / 2 - 50, 1, '#333', 30 * w, 30, h / 2, '4', 10)
+  drawCircle(ctxCenter, startX + (20 + 7 - 1) * w, h / 2, '6')
+  drawArrow(ctxCenter, startX + (7 - 1 + 40) * w, h / 2 - 100 + radius, startX + (7 - 1 + 40) * w, h / 2 - 50 - radius, 1, '#333', 0, 0, h / 2, '', 0)
+  drawArrow(ctxCenter, startX + (7 - 1) * w + radius, h / 2, (20 + 7 - 1) * w + radius, h / 2, 1, '#333', 20 * w, 20, h / 2, '3-1', 0)
+  drawCircle(ctxCenter, startX + (7 - 1 + 20) * w, h / 2 + 50, '7')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, (20 + 7 - 1) * w + radius, h / 2 + 50, 1, '#333', 20 * w, 20, h / 2, '3-2', 0)
+  drawCircle(ctxCenter, startX + (7 - 1 + 7) * w, h / 2 + 100, '8')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, startX + (7 - 1 + 7) * w - radius, h / 2 + 100, 1, '#333', 8 * w, 8, h / 2, '3-3', 0)
+  drawCircle(ctxCenter, startX + (7 - 1 + 15 + 5) * w, h / 2 + 150, '9')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, startX + (7 - 1 + 15 + 5) * w - radius, h / 2 + 150, 1 , '#333', 15 * w, 15, h / 2, '3-4', 5)
+  drawCircle(ctxCenter, startX + (7 + 7 - 1 + 13) * w, h / 2 + 100, '10')
+  drawArrow(ctxCenter, startX + (7 - 1 + 7) * w + radius, h / 2 + 100, startX + (7 - 1 + 7 + 13) * w - radius, h / 2 + 100, 1, '#333', 13 * w, 13, h / 2, '3-5', 0)
+  drawCircle(ctxCenter, startX + (7 + 7 - 1 + 13 + 10) * w, h / 2 + 100, '11')
+  drawCircle(ctxCenter, startX + (20 + 7 + 10 - 1) * w, h / 2, '12')
+  drawArrow(ctxCenter, startX + (7 + 7 - 1 + 13 + 7 + 3) * w, h / 2 + 100 - radius, startX + (20 + 7 + 10 - 1) * w, h / 2 + radius, 1, '#333', 0, 0, h / 2, '', 0)
+  drawArrow(ctxCenter, startX + (7 + 7 - 1 + 13) * w + radius, h / 2 + 100, startX + (7 + 7 - 1 + 13 + 10) * w - radius, h / 2 + 100, 1, '#333', 4 * w, 4, h / 2, '3-6', 3)
+  drawArrow(ctxCenter, startX + (20 + 7 - 1) * w + radius, h / 2, (20 + 7 + 10 - 1) * w + radius, h / 2, 1, '#333', 10 * w, 10, h / 2, '3-7', 0)
+  drawCircle(ctxCenter, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2, '13')
+  drawArrow(ctxCenter, startX + (20 + 7 + 10 - 1) * w + radius, h / 2, (20 + 7 + 10 + 10 - 1) * w + radius, h / 2, 1, '#333', 10 * w, 10, h / 2, '3-8', 0)
+  drawArrow(ctxCenter, startX + (20 + 7 + 10 + 10 - 1) * w + radius, h / 2, startX + (59 - 1) * w - radius, h / 2, 1 , '#333',  12 * w, 12, h / 2, '5', 0)
+
+  drawArrow(ctxCenter, startX + (7 - 1 + 40) * w, h / 2 - 50 + radius, startX + (7 - 1 + 40) * w, h / 2 - radius, 1, '#333', 0, 0, h / 2, '', 0 )
+
+  drawCircle(ctxCenter, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2 + 200, '14')
+  drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, startX + (20 + 7 + 10 + 10 - 1) * w - radius, h / 2 + 200, 1, '#333', 25 * w, 25,  h / 2, '4', 15)
+
+  drawArrow(ctxCenter, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2 + 200 - radius, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2 + radius, 1, '#333', 0, 0, h / 2, '', 0)
 }
 
 // const drawFun = (canvasCenter, ctxCenter) => {

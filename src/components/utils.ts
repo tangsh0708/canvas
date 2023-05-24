@@ -127,7 +127,9 @@ export function drawArrow(
           ctx.lineTo(toX, toY)
         }
         ctx.fillText(work, fromX+(toX - fromX)/2, toY - 10);
-        ctx.fillText(timerB, fromX+(toX - fromX)/2, toY + 20)
+        if (timerB) {
+            ctx.fillText(timerB, fromX + (toX - fromX) / 2, toY + 20)
+        }
     }
     arrowX = toX + topX;
     arrowY = toY + topY;
