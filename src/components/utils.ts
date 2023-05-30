@@ -98,7 +98,6 @@ export function drawArrow(
                     ctx.lineTo(toX, toY)
                 // }
             } else {
-                console.log(1111)
                 ctx.beginPath()
                 ctx.setLineDash([5, 10])
                 ctx.moveTo(fromX, fromY)

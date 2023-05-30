@@ -527,26 +527,43 @@ const drawFun = (value: any, h) => {
         item.children.forEach((newItem: any) => {
           newItem.newH = item.newH;
           if (!newItem.isMainWork) {
-            drawCircle(
-              ctxCenter,
-              startX + (newItem.totalTime - 1) * w,
-              item.newH,
-              newItem.id
-            );
-            drawArrow(
-              ctxCenter,
-              startX + (item.totalTime - 1) * w + radius,
-              item.newH,
-              startX + (newItem.totalTime - 1) * w - radius,
-              item.newH,
-              1,
-              "#333",
-              newItem.workTime * w,
-              newItem.workTime,
-              h / 2,
-              newItem.workName,
-              newItem.freeTime
-            );
+            if (newItem.newH < h / 4) {
+              drawArrow(
+                  ctxCenter,
+                  startX + (item.totalTime - 1) * w,
+                  item.newH + radius,
+                  startX + (newItem.totalTime - 1) * w,
+                  item.newH + 75 - radius,
+                  1,
+                  "#333",
+                  newItem.workTime * w,
+                  newItem.workTime,
+                  h / 2,
+                  newItem.workName,
+                  newItem.freeTime
+              );
+            } else {
+              drawCircle(
+                  ctxCenter,
+                  startX + (newItem.totalTime - 1) * w,
+                  item.newH,
+                  newItem.id
+              );
+              drawArrow(
+                  ctxCenter,
+                  startX + (item.totalTime - 1) * w + radius,
+                  item.newH,
+                  startX + (newItem.totalTime - 1) * w - radius,
+                  item.newH,
+                  1,
+                  "#333",
+                  newItem.workTime * w,
+                  newItem.workTime,
+                  h / 2,
+                  newItem.workName,
+                  newItem.freeTime
+              );
+            }
           } else {
             if (item.newH > h / 2) {
               drawArrow(
