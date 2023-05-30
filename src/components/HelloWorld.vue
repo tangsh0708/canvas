@@ -5,7 +5,7 @@
             <el-date-picker v-model="state.listQuery.time" type="daterange" @change="handleTimeChange" value-format="YYYY-MM-DD"></el-date-picker>
         </el-form-item>
       <el-form-item label="间隔">
-        <el-input-number v-model="state.listQuery.diff" controls="false" :min="0" :max="10" @change="handleDiffChange"></el-input-number>
+        <el-input-number v-model="state.listQuery.diff" :controls="true" :min="1" :max="10" @change="handleDiffChange"></el-input-number>
       </el-form-item>
     </el-form>
   </div>
@@ -38,7 +38,18 @@ const state = reactive({
       startTime: '',
       endTime: '',
       diff: 3,
-    }
+    },
+    dataList: [
+        { id: '1.1', workName: 'A', workTime: 59, freeTime: 0, totalCountTime: 0, isMainWork: true, children: [
+                { id: '2', workName: 'B', workTime: 20, freeTime: 0, totalCountTime: 13, isMainWork: false, children: [
+                        { id: '3', workName: 'C', workTime: 28, freeTime: 13, totalCountTime: 13, isMainWork: false, children: []}
+                    ] },
+                { id: '4', workName: 'D', workTime: 61, freeTime: 0, totalCountTime: 0, isMainWork: true, children: [
+                        { id: '6', workName: 'F', workTime: 31, freeTime: 0, totalCountTime: 0, isMainWork: true, children: [] }
+                    ] },
+                { id: '5', workName: 'E', workTime: 45, freeTime: 16, totalCountTime: 16, isMainWork: false, children: [] }
+            ] }
+    ]
 })
 const config = reactive({
 	size: 101, // 刻度尺总刻度数，（100个间隔需要101个刻度线）
@@ -144,13 +155,15 @@ const drawFun = (canvasCenter, ctxCenter) => {
   drawArrow(ctxCenter, startX + (7 - 1 + 40) * w, h / 2 - 100 + radius, startX + (7 - 1 + 40) * w, h / 2 - 50 - radius, 1, '#333', 0, 0, h / 2, '', 0)
   drawArrow(ctxCenter, startX + (7 - 1) * w + radius, h / 2, (20 + 7 - 1) * w + radius, h / 2, 1, '#333', 20 * w, 20, h / 2, '3-1', 0)
   drawCircle(ctxCenter, startX + (7 - 1 + 20) * w, h / 2 + 50, '7')
+    drawArrow(ctxCenter, startX + (7 - 1 + 20) * w, h / 2 + 50 - radius, startX + (7 - 1 + 20) * w, h / 2 + radius, 1, '#333', 0, 0, h / 2, '', 0)
   drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, (20 + 7 - 1) * w + radius, h / 2 + 50, 1, '#333', 20 * w, 20, h / 2, '3-2', 0)
   drawCircle(ctxCenter, startX + (7 - 1 + 7) * w, h / 2 + 100, '8')
   drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, startX + (7 - 1 + 7) * w - radius, h / 2 + 100, 1, '#333', 8 * w, 8, h / 2, '3-3', 0)
   drawCircle(ctxCenter, startX + (7 - 1 + 15 + 5) * w, h / 2 + 150, '9')
   drawArrow(ctxCenter, startX + (7 - 1) * w, h / 2 + radius, startX + (7 - 1 + 15 + 5) * w - radius, h / 2 + 150, 1 , '#333', 15 * w, 15, h / 2, '3-4', 5)
   drawCircle(ctxCenter, startX + (7 + 7 - 1 + 13) * w, h / 2 + 100, '10')
-  drawArrow(ctxCenter, startX + (7 - 1 + 7) * w + radius, h / 2 + 100, startX + (7 - 1 + 7 + 13) * w - radius, h / 2 + 100, 1, '#333', 13 * w, 13, h / 2, '3-5', 0)
+  drawArrow(ctxCenter, startX + (7 + 7 - 1 + 13) * w, h / 2 + 150 - radius, startX + (7 + 7 - 1 + 13) * w, h / 2 + 100 + radius, 1, '#333', 0, 0, h / 2, '', 0)
+    drawArrow(ctxCenter, startX + (7 - 1 + 7) * w + radius, h / 2 + 100, startX + (7 - 1 + 7 + 13) * w - radius, h / 2 + 100, 1, '#333', 13 * w, 13, h / 2, '3-5', 0)
   drawCircle(ctxCenter, startX + (7 + 7 - 1 + 13 + 10) * w, h / 2 + 100, '11')
   drawCircle(ctxCenter, startX + (20 + 7 + 10 - 1) * w, h / 2, '12')
   drawArrow(ctxCenter, startX + (7 + 7 - 1 + 13 + 7 + 3) * w, h / 2 + 100 - radius, startX + (20 + 7 + 10 - 1) * w, h / 2 + radius, 1, '#333', 0, 0, h / 2, '', 0)
@@ -168,22 +181,34 @@ const drawFun = (canvasCenter, ctxCenter) => {
   drawArrow(ctxCenter, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2 + 200 - radius, startX + (20 + 7 + 10 + 10 - 1) * w, h / 2 + radius, 1, '#333', 0, 0, h / 2, '', 0)
 }
 
-// const drawFun = (canvasCenter, ctxCenter) => {
-//   ctxCenter.clearRect(0, 0, canvasCenter.width, canvasCenter.height)
-//   drawCircle(ctxCenter, startX, canvasCenter.height / 2, 1)
-//   drawCircle(ctxCenter, startX + 2 * w, canvasCenter.height / 2, 2)
-//   drawArrow(ctxCenter, startX + radius, canvasCenter.height / 2, 2 * w + radius, canvasCenter.height / 2, 1, '#333', 2 * w, 'A', canvasCenter.height / 2)
-//   drawCircle(ctxCenter, startX + 3 * w, 50, 3)
-//   drawArrow(ctxCenter, 2 * w + startX, canvasCenter.height / 2 - radius, 3 * w + radius, 50, 1, '#333', 1 * w, 'B', canvasCenter.height / 2)
-//   drawCircle(ctxCenter, startX + 5 * w, canvasCenter.height / 2, 4)
-//   drawArrow(ctxCenter, 3 * w + startX + radius, 50, 5 * w + startX, canvasCenter.height / 2 - radius,  1, '#333', 1 * w, 'C', canvasCenter.height / 2)
-//   drawArrow(ctxCenter, 2 * w + startX + radius, canvasCenter.height / 2, 5 * w + startX - radius , canvasCenter.height / 2, 1, '#333', 3 * w, 'D', canvasCenter.height / 2);
-//   drawCircle(ctxCenter, startX + 4 * w, 250, 5)
-//   drawArrow(ctxCenter, 2 * w + startX, canvasCenter.height / 2 + radius, 4 * w + startX - radius, 250, 1, '#333', 2 * w, 'E', canvasCenter.height / 2)
-//   drawArrow(ctxCenter, 5 * w + startX + radius, canvasCenter.height / 2, 10 * w + startX - radius, canvasCenter.height / 2, 1, '#333', 5 * w, 'F', canvasCenter.height / 2)
-//   drawCircle(ctxCenter, startX + 10 * w, 150, 6)
-//   drawArrow(ctxCenter, 4 * w + startX + radius, 250, 10 * w + startX, canvasCenter.height / 2 + radius, 1, '#333', 6 * w, 'G', canvasCenter.height / 2)
-// }
+const drawFunTwo = (canvasCenter, ctxCenter) => {
+  const h = canvasCenter.height
+  ctxCenter.clearRect(0, 0, canvasCenter.width, canvasCenter.height)
+
+  drawCircle(ctxCenter, startX + (1 - 1) * w, h / 2, 1)
+    state.dataList.map((item: any, index: number) => {
+        if (item.isMainWork) {
+            drawCircle(ctxCenter, startX + (item.workTime - 1) * w, h / 2, item.id)
+        } else {
+            // drawCircle(ctxCenter, startX + (item.index - 1) * w, h / 2, item.index)
+            // drawArrow(ctxCenter, startX + (item.index - 1) * w + radius, h / 2, startX + (item.index - 1) * w + radius, h / 2 + 50, 1, '#333', 0, 0, h / 2, '', 0)
+            // drawCircle(ctxCenter, startX + (item.index - 1) * w, h / 2 + 50, item.index)
+        }
+    })
+  // drawCircle(ctxCenter, startX, canvasCenter.height / 2, 1)
+  // drawCircle(ctxCenter, startX + 2 * w, canvasCenter.height / 2, 2)
+  // drawArrow(ctxCenter, startX + radius, canvasCenter.height / 2, 2 * w + radius, canvasCenter.height / 2, 1, '#333', 2 * w, 'A', canvasCenter.height / 2)
+  // drawCircle(ctxCenter, startX + 3 * w, 50, 3)
+  // drawArrow(ctxCenter, 2 * w + startX, canvasCenter.height / 2 - radius, 3 * w + radius, 50, 1, '#333', 1 * w, 'B', canvasCenter.height / 2)
+  // drawCircle(ctxCenter, startX + 5 * w, canvasCenter.height / 2, 4)
+  // drawArrow(ctxCenter, 3 * w + startX + radius, 50, 5 * w + startX, canvasCenter.height / 2 - radius,  1, '#333', 1 * w, 'C', canvasCenter.height / 2)
+  // drawArrow(ctxCenter, 2 * w + startX + radius, canvasCenter.height / 2, 5 * w + startX - radius , canvasCenter.height / 2, 1, '#333', 3 * w, 'D', canvasCenter.height / 2);
+  // drawCircle(ctxCenter, startX + 4 * w, 250, 5)
+  // drawArrow(ctxCenter, 2 * w + startX, canvasCenter.height / 2 + radius, 4 * w + startX - radius, 250, 1, '#333', 2 * w, 'E', canvasCenter.height / 2)
+  // drawArrow(ctxCenter, 5 * w + startX + radius, canvasCenter.height / 2, 10 * w + startX - radius, canvasCenter.height / 2, 1, '#333', 5 * w, 'F', canvasCenter.height / 2)
+  // drawCircle(ctxCenter, startX + 10 * w, 150, 6)
+  // drawArrow(ctxCenter, 4 * w + startX + radius, 250, 10 * w + startX, canvasCenter.height / 2 + radius, 1, '#333', 6 * w, 'G', canvasCenter.height / 2)
+}
 let canvas = null
 let context = null
 let canvasTwo = null
@@ -202,7 +227,7 @@ const init = () => {
   drawLine(ctx, config, false)
   canvasCenter = document.getElementById('canvasCenter') as HTMLCanvasElement;
   ctxCenter = canvasCenter.getContext('2d') as CanvasRenderingContext2D;
-  drawFun(canvasCenter, ctxCenter)
+  drawFunTwo(canvasCenter, ctxCenter)
     // drawFunTow()
   context.strokeStyle = '#000000';
   context.lineWidth = 2;
