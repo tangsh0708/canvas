@@ -118,7 +118,7 @@ const state = reactive({
   },
   dataList: [
     {
-      id: "1",
+      id: 1,
       workName: "",
       workTime: 0,
       freeTime: 0,
@@ -127,7 +127,7 @@ const state = reactive({
       totalTime: 1,
       children: [
         {
-          id: "2",
+          id: 2,
           workName: "1",
           workTime: 7,
           freeTime: 0,
@@ -136,7 +136,7 @@ const state = reactive({
           totalTime: 7,
           children: [
             {
-              id: "3",
+              id: 3,
               workName: "3-1",
               workTime: 20,
               freeTime: 0,
@@ -145,7 +145,7 @@ const state = reactive({
               totalTime: 27,
               children: [
                 {
-                  id: "5",
+                  id: 5,
                   workName: "3-7",
                   workTime: 10,
                   freeTime: 0,
@@ -154,7 +154,7 @@ const state = reactive({
                   totalTime: 37,
                   children: [
                     {
-                      id: "6",
+                      id: 6,
                       workName: "3-8",
                       workTime: 10,
                       freeTime: 0,
@@ -163,7 +163,7 @@ const state = reactive({
                       totalTime: 47,
                       children: [
                         {
-                          id: "7",
+                          id: 31,
                           workName: "5",
                           workTime: 12,
                           freeTime: 0,
@@ -172,7 +172,7 @@ const state = reactive({
                           totalTime: 59,
                           children: [
                             {
-                              id: "8",
+                              id: 33,
                               workName: "B",
                               workTime: 20,
                               freeTime: 0,
@@ -181,7 +181,7 @@ const state = reactive({
                               totalTime: 79,
                               children: [
                                 {
-                                  id: "9",
+                                  id: 35,
                                   workName: "C",
                                   workTime: 28,
                                   freeTime: 13,
@@ -190,7 +190,7 @@ const state = reactive({
                                   totalTime: 120,
                                   children: [
                                     {
-                                      id: "10",
+                                      id: 36,
                                       workName: "",
                                       workTime: 0,
                                       freeTime: 0,
@@ -204,7 +204,7 @@ const state = reactive({
                               ],
                             },
                             {
-                              id: "10",
+                              id: 36,
                               workName: "D",
                               workTime: 61,
                               freeTime: 0,
@@ -213,7 +213,7 @@ const state = reactive({
                               totalTime: 120,
                               children: [
                                 {
-                                  id: "11",
+                                  id: 37,
                                   workName: "F",
                                   workTime: 31,
                                   freeTime: 0,
@@ -225,7 +225,7 @@ const state = reactive({
                               ],
                             },
                             {
-                              id: "12",
+                              id: 34,
                               workName: "E",
                               workTime: 45,
                               freeTime: 16,
@@ -234,7 +234,7 @@ const state = reactive({
                               totalTime: 120,
                               children: [
                                 {
-                                  id: "10",
+                                  id: 13,
                                   workName: "",
                                   workTime: 0,
                                   freeTime: 0,
@@ -254,7 +254,7 @@ const state = reactive({
               ],
             },
             {
-              id: "4",
+              id: 4,
               workName: "3-2",
               workTime: 20,
               freeTime: 0,
@@ -263,7 +263,7 @@ const state = reactive({
               totalTime: 27,
               children: [
                 {
-                  id: "3",
+                  id: 3,
                   workName: "",
                   workTime: 0,
                   freeTime: 0,
@@ -275,7 +275,7 @@ const state = reactive({
               ],
             },
             {
-              id: "13",
+              id: 13,
               workName: "3-3",
               workTime: 7,
               freeTime: 0,
@@ -284,7 +284,7 @@ const state = reactive({
               totalTime: 14,
               children: [
                 {
-                  id: "14",
+                  id: 14,
                   workName: "3-5",
                   workTime: 13,
                   freeTime: 0,
@@ -293,7 +293,7 @@ const state = reactive({
                   totalTime: 27,
                   children: [
                     {
-                      id: "15",
+                      id: 15,
                       workName: "3-6",
                       workTime: 10,
                       freeTime: 0,
@@ -302,7 +302,7 @@ const state = reactive({
                       totalTime: 37,
                       children: [
                         {
-                          id: "5",
+                          id: 5,
                           workName: "",
                           workTime: 0,
                           freeTime: 0,
@@ -318,7 +318,7 @@ const state = reactive({
               ],
             },
             {
-              id: "17",
+              id: 17,
               workName: "4",
               workTime: 25,
               freeTime: 15,
@@ -327,7 +327,7 @@ const state = reactive({
               totalTime: 47,
               children: [
                 {
-                  id: "6",
+                  id: 6,
                   workName: "",
                   workTime: 0,
                   freeTime: 0,
@@ -339,7 +339,7 @@ const state = reactive({
               ],
             },
             {
-              id: "18",
+              id: 18,
               workName: "3-4",
               workTime: 15,
               freeTime: 5,
@@ -348,7 +348,7 @@ const state = reactive({
               totalTime: 27,
               children: [
                 {
-                  id: "14",
+                  id: 14,
                   workName: "",
                   workTime: 0,
                   freeTime: 0,
@@ -359,6 +359,27 @@ const state = reactive({
                 },
               ],
             },
+            {
+              id: 19,
+              workName: "2",
+              workTime: 30,
+              freeTime: 10,
+              totalCountTime: 10,
+              isMainWork: false,
+              totalTime: 47,
+              children: [
+                {
+                  id: 6,
+                  workName: '',
+                  workTime: 0,
+                  freeTime: 0,
+                  totalCountTime: 0,
+                  isMainWork: true,
+                  totalTime: 47,
+                  children: []
+                }
+              ]
+            }
           ],
         },
       ],
@@ -376,8 +397,10 @@ const init = () => {
   drawLine(ctx, config, false);
   canvasCenter = document.getElementById("canvasCenter") as HTMLCanvasElement;
   ctxCenter = canvasCenter.getContext("2d") as CanvasRenderingContext2D;
+  ctxCenter.clearRect(0, 0, canvasCenter.width, canvasCenter.height);
   // drawFunTwo(canvasCenter, ctxCenter)
   // drawFunTow()
+  // drawAllCircle();
   drawMainLine(canvasCenter, ctxCenter);
   context.strokeStyle = "#000000";
   context.lineWidth = 2;
@@ -388,18 +411,21 @@ const drawMainLine = (canvasCenter, ctxCenter) => {
   ctxCenter.lineWidth = 1; // 画笔大小
   drawFun(state.dataList, h);
 };
+let newIndex = 0
 const drawFun = (value: any, h) => {
   const smallHeight = 50;
   let count = 0;
   value.forEach((item: any) => {
+    newIndex++
     if (item.isMainWork) {
       count++;
       item.height = h / 2 + smallHeight * (count - 1);
+      ctxCenter.clearRect(startX + (item.totalTime - 1) * w - radius, item.height - radius, radius * 2, radius * 2)
       drawCircle(
         ctxCenter,
         startX + (item.totalTime - 1) * w,
         item.height,
-        item.id
+        newIndex < item.id ? item.id : newIndex
       );
       if (item.children && item.children.length > 0) {
         const notMainWorkArray = item.children.filter((item: any) => {
@@ -409,6 +435,7 @@ const drawFun = (value: any, h) => {
           return item.isMainWork;
         });
         mainWorkArray.map((child: any, childIndex: number) => {
+          child.id++
           child.newH = item.height + childIndex * smallHeight;
           if (child.newH == item.height) {
             if (child.newH == h / 2) {
@@ -460,6 +487,7 @@ const drawFun = (value: any, h) => {
           }
         });
         notMainWorkArray.map((notMainChild: any, index: number) => {
+          newIndex++
           notMainChild.newH =
             (index + 1) % 2 == 0
               ? ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) * smallHeight +
@@ -472,7 +500,7 @@ const drawFun = (value: any, h) => {
             ctxCenter,
             startX + (notMainChild.totalTime - 1) * w,
             notMainChild.newH,
-            notMainChild.id
+            newIndex < notMainChild.id ? notMainChild.id : newIndex
           );
           if (notMainChild.newH > h / 2) {
             drawArrow(
@@ -547,7 +575,7 @@ const drawFun = (value: any, h) => {
                   ctxCenter,
                   startX + (newItem.totalTime - 1) * w,
                   item.newH,
-                  newItem.id
+                  newIndex < newItem.id ? newItem.id : newIndex
               );
               drawArrow(
                   ctxCenter,
@@ -625,10 +653,13 @@ const handleTimeChange = (val: any) => {
     state.listQuery.endTime = val[1];
     yearList = timeSlice(val[0], val[1], 1, []);
     config.size = timeDeal(val[0], val[1], "day");
+    newIndex = 0;
     init();
   }
 };
 const handleDiffChange = () => {
+  newIndex = 0;
+  ctxCenter.clearRect(0, 0, canvasCenter.width, canvasCenter.height)
   init();
 };
 </script>
