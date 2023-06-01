@@ -116,275 +116,31 @@ const state = reactive({
     endTime: "",
     diff: 3,
   },
-  dataList: [
-    {
-      id: 1,
-      workName: "",
-      workTime: 0,
-      freeTime: 0,
-      totalCountTime: 0,
-      isMainWork: true,
-      totalTime: 1,
-      children: [
-        {
-          id: 2,
-          workName: "1",
-          workTime: 7,
-          freeTime: 0,
-          totalCountTime: 0,
-          isMainWork: true,
-          totalTime: 7,
-          children: [
-            {
-              id: 3,
-              workName: "3-1",
-              workTime: 20,
-              freeTime: 0,
-              totalCountTime: 0,
-              isMainWork: true,
-              totalTime: 27,
-              children: [
-                {
-                  id: 5,
-                  workName: "3-7",
-                  workTime: 10,
-                  freeTime: 0,
-                  totalCountTime: 0,
-                  isMainWork: true,
-                  totalTime: 37,
-                  children: [
-                    {
-                      id: 6,
-                      workName: "3-8",
-                      workTime: 10,
-                      freeTime: 0,
-                      totalCountTime: 0,
-                      isMainWork: true,
-                      totalTime: 47,
-                      children: [
-                        {
-                          id: 31,
-                          workName: "5",
-                          workTime: 12,
-                          freeTime: 0,
-                          totalCountTime: 0,
-                          isMainWork: true,
-                          totalTime: 59,
-                          children: [
-                            {
-                              id: 33,
-                              workName: "B",
-                              workTime: 20,
-                              freeTime: 0,
-                              totalCountTime: 13,
-                              isMainWork: false,
-                              totalTime: 79,
-                              children: [
-                                {
-                                  id: 35,
-                                  workName: "C",
-                                  workTime: 28,
-                                  freeTime: 13,
-                                  totalCountTime: 13,
-                                  isMainWork: false,
-                                  totalTime: 120,
-                                  children: [
-                                    {
-                                      id: 36,
-                                      workName: "",
-                                      workTime: 0,
-                                      freeTime: 0,
-                                      totalCountTime: 0,
-                                      isMainWork: true,
-                                      totalTime: 120,
-                                      children: [],
-                                    },
-                                  ],
-                                },
-                              ],
-                            },
-                            {
-                              id: 36,
-                              workName: "D",
-                              workTime: 61,
-                              freeTime: 0,
-                              totalCountTime: 0,
-                              isMainWork: true,
-                              totalTime: 120,
-                              children: [
-                                {
-                                  id: 37,
-                                  workName: "F",
-                                  workTime: 31,
-                                  freeTime: 0,
-                                  totalCountTime: 0,
-                                  isMainWork: true,
-                                  totalTime: 151,
-                                  children: [],
-                                },
-                              ],
-                            },
-                            {
-                              id: 34,
-                              workName: "E",
-                              workTime: 45,
-                              freeTime: 16,
-                              totalCountTime: 16,
-                              isMainWork: false,
-                              totalTime: 120,
-                              children: [
-                                {
-                                  id: 13,
-                                  workName: "",
-                                  workTime: 0,
-                                  freeTime: 0,
-                                  totalCountTime: 0,
-                                  isMainWork: true,
-                                  totalTime: 120,
-                                  children: [],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              id: 4,
-              workName: "3-2",
-              workTime: 20,
-              freeTime: 0,
-              totalCountTime: 0,
-              isMainWork: true,
-              totalTime: 27,
-              children: [
-                {
-                  id: 3,
-                  workName: "",
-                  workTime: 0,
-                  freeTime: 0,
-                  totalCountTime: 0,
-                  isMainWork: true,
-                  totalTime: 27,
-                  children: [],
-                },
-              ],
-            },
-            {
-              id: 13,
-              workName: "3-3",
-              workTime: 7,
-              freeTime: 0,
-              totalCountTime: 3,
-              isMainWork: false,
-              totalTime: 14,
-              children: [
-                {
-                  id: 14,
-                  workName: "3-5",
-                  workTime: 13,
-                  freeTime: 0,
-                  totalCountTime: 3,
-                  isMainWork: false,
-                  totalTime: 27,
-                  children: [
-                    {
-                      id: 15,
-                      workName: "3-6",
-                      workTime: 10,
-                      freeTime: 0,
-                      totalCountTime: 0,
-                      isMainWork: false,
-                      totalTime: 37,
-                      children: [
-                        {
-                          id: 5,
-                          workName: "",
-                          workTime: 0,
-                          freeTime: 0,
-                          totalCountTime: 0,
-                          isMainWork: true,
-                          totalTime: 37,
-                          children: [],
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              id: 17,
-              workName: "4",
-              workTime: 25,
-              freeTime: 15,
-              totalCountTime: 15,
-              isMainWork: false,
-              totalTime: 47,
-              children: [
-                {
-                  id: 6,
-                  workName: "",
-                  workTime: 0,
-                  freeTime: 0,
-                  totalCountTime: 0,
-                  isMainWork: true,
-                  totalTime: 47,
-                  children: [],
-                },
-              ],
-            },
-            {
-              id: 18,
-              workName: "3-4",
-              workTime: 15,
-              freeTime: 5,
-              totalCountTime: 8,
-              isMainWork: false,
-              totalTime: 27,
-              children: [
-                {
-                  id: 14,
-                  workName: "",
-                  workTime: 0,
-                  freeTime: 0,
-                  totalCountTime: 0,
-                  isMainWork: false,
-                  totalTime: 27,
-                  children: [],
-                },
-              ],
-            },
-            {
-              id: 19,
-              workName: "2",
-              workTime: 30,
-              freeTime: 10,
-              totalCountTime: 10,
-              isMainWork: false,
-              totalTime: 47,
-              children: [
-                {
-                  id: 6,
-                  workName: '',
-                  workTime: 0,
-                  freeTime: 0,
-                  totalCountTime: 0,
-                  isMainWork: true,
-                  totalTime: 47,
-                  children: []
-                }
-              ]
-            }
-          ],
-        },
-      ],
-    },
+  tableData: [
+        { id: 2, workIndex: '1.1', workName: '工作A', workTime: 59, freeTime: 0, totalCountTime: 0,startTime: '2021-01-01', endTime: '2021-02-28', afterWork: [16, 18, 19], isMainWork: true, children: [
+            { id: 3, workIndex: '1.1.1', workName: '工作1', workTime: 7, freeTime: 0, totalCountTime: 0, startTime: '2021-01-01', endTime: '2021-01-07', afterWork: [4, 6, 7, 8, 9, 14], isMainWork: true, children: null},
+            { id: 4, workIndex: '1.1.2', workName: '工作2', workTime: 30, freeTime: 10, totalCountTime: 10, startTime: '2021-01-08', endTime: '2021-02-06', afterWork: [15], isMainWork: false, children: null},
+            { id: 5, workIndex: '1.1.3', workName: '工作3', workTime: 40, freeTime: 0, totalCountTime: 0, startTime: '2021-01-08', endTime: '2021-02-16', afterWork: [15], isMainWork: true, children: [
+                { id: 6, workIndex: '1.1.3.1', workName: '工作3-1', workTime: 20, freeTime: 0, totalCountTime: 0, startTime: '2021-01-08', endTime: '2021-01-27', afterWork: [12], isMainWork: true, children: null },
+                { id: 7, workIndex: '1.1.3.2', workName: '工作3-2', workTime: 20, freeTime: 0, totalCountTime: 0, startTime: '2021-01-08', endTime: '2021-01-27', afterWork: [12], isMainWork: true, children: null },
+                { id: 8, workIndex: '1.1.3.3', workName: '工作3-3', workTime: 7, freeTime: 0, totalCountTime: 3, startTime: '2021-01-08', endTime: '2021-01-14', afterWork: [10], isMainWork: false, children: null },
+                { id: 9, workIndex: '1.1.3.4', workName: '工作3-4', workTime: 15, freeTime: 5, totalCountTime: 8, startTime: '2021-01-08', endTime: '2021-01-22', afterWork: [11], isMainWork: false, children: null},
+                { id: 10, workIndex: '1.1.3.5', workName: '工作3-5', workTime: 13, freeTime: 0, totalCountTime: 3, startTime: '2021-01-15', endTime: '2021-01-27', afterWork: [11], isMainWork: false, children: null},
+                { id: 11, workIndex: '1.1.3.6', workName: '工作3-6', workTime: 7, freeTime: 3, totalCountTime: 3, startTime: '2021-01-28', endTime: '2021-02-03', afterWork: [13], isMainWork: false, children: null},
+                { id: 12, workIndex: '1.1.3.7', workName: '工作3-7', workTime: 10, freeTime: 0, totalCountTime: 0, startTime: '2021-01-28', endTime: '2021-02-06', afterWork: [13], isMainWork: true, children: null},
+                { id: 13, workIndex: '1.1.3.8', workName: '工作3-8', workTime: 10, freeTime: 0, totalCountTime: 0, startTime: '2021-02-07', endTime: '2021-02-16', afterWork: [15], isMainWork: true, children: null},
+              ] },
+            { id: 14, workIndex: '1.1.4', workName: '工作4', workTime: 25, freeTime: 15, totalCountTime: 15, startTime: '2021-01-08', endTime: '2021-02-01', afterWork: [15], isMainWork: false, children: null},
+            { id: 15, workIndex: '1.1.5', workName: '工作5', workTime: 12, freeTime: 0, totalCountTime: 0, startTime: '2021-02-17', endTime: '2021-02-28', afterWork: [16, 18, 19], isMainWork: true, children: null},
+          ] },
+        { id: 16, workIndex: '1.2', workName: '工作B', workTime: 20, freeTime: 0, totalCountTime: 13, startTime: '2021-03-01', endTime: '2021-03-20', afterWork: [17], isMainWork: false, children: null },
+        { id: 17, workIndex: '1.3', workName: '工作C', workTime: 28, freeTime: 13, totalCountTime: 13, startTime: '2021-03-21', endTime: '2021-04-17', afterWork: [20], isMainWork: false, children: null },
+        { id: 18, workIndex: '1.4', workName: '工作D', workTime: 61, freeTime: 0, totalCountTime: 0, startTime: '2021-03-01', endTime: '2021-04-30', afterWork: [20], isMainWork: true, children: null },
+        { id: 19, workIndex: '1.5', workName: '工作E', workTime: 45, freeTime: 16, totalCountTime: 16, startTime: '2021-03-01', endTime: '2021-04-14', afterWork: [20], isMainWork: false, children: null },
+        { id: 20, workIndex: '1.6', workName: '工作F', workTime: 31, freeTime: 0, totalCountTime: 0, startTime: '2021-05-01', endTime: '2021-05-31', afterWork: null, isMainWork: true, children: null },
   ],
+  dataList: [],
+  hasDrawList: [],
 });
 const init = () => {
   canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -401,50 +157,124 @@ const init = () => {
   // drawFunTwo(canvasCenter, ctxCenter)
   // drawFunTow()
   // drawAllCircle();
-  drawMainLine(canvasCenter, ctxCenter);
   context.strokeStyle = "#000000";
   context.lineWidth = 2;
+  dealData(state.tableData)
+  newArray.map((item: any, index: number) => {
+    state.hasDrawList.push(false)
+  })
+  const array = newArray.filter((item: any) => {
+    return !item.children
+  })
+  console.log(array, 'array')
+  array.map((item: any, index: number) => {
+    if (index == 0) {
+      pushArrayFun(item)
+    }
+  })
+  state.dataList = []
+  state.dataList.push(array[0])
+  drawMainLine(canvasCenter, ctxCenter);
 };
+const pushArrayFun = (testArray) => {
+  testArray.totalTime = dayjs(testArray.startTime).diff('2021-01-01', 'day') + testArray.workTime + testArray.freeTime
+  testArray.newChildren = []
+  if (testArray.afterWork && testArray.afterWork.length > 0) {
+    testArray.afterWork.map((afterItem: any) => {
+      const findIndex = newArray.findIndex((fIndex: any) => {
+        return fIndex.id == afterItem
+      })
+      if (findIndex !== -1) {
+        testArray.newChildren.push(newArray[findIndex])
+        pushArrayFun(newArray[findIndex])
+      }
+    })
+  }
+}
+const newArray = []
+const dealData = (data: any) => {
+  data.forEach((item: any) => {
+    newArray.push(item)
+    if (item.children && item.children.length > 0) {
+      dealData(item.children)
+    }
+  })
+}
 const drawMainLine = (canvasCenter, ctxCenter) => {
   const h = canvasCenter.height;
   ctxCenter.strokeStyle = "#333"; // 画笔颜色
   ctxCenter.lineWidth = 1; // 画笔大小
+  drawCircle(ctxCenter, startX, h / 2, 1);
+  console.log(state.dataList, 'dataList')
   drawFun(state.dataList, h);
 };
 let newIndex = 0
 const drawFun = (value: any, h) => {
   const smallHeight = 50;
   let count = 0;
+  // if (value.len)
   value.forEach((item: any) => {
-    newIndex++
-    if (item.isMainWork) {
-      count++;
-      item.height = h / 2 + smallHeight * (count - 1);
-      ctxCenter.clearRect(startX + (item.totalTime - 1) * w - radius, item.height - radius, radius * 2, radius * 2)
-      drawCircle(
-        ctxCenter,
-        startX + (item.totalTime - 1) * w,
-        item.height,
-        newIndex < item.id ? item.id : newIndex
-      );
-      if (item.children && item.children.length > 0) {
-        const notMainWorkArray = item.children.filter((item: any) => {
-          return !item.isMainWork;
-        });
-        const mainWorkArray = item.children.filter((item: any) => {
-          return item.isMainWork;
-        });
-        mainWorkArray.map((child: any, childIndex: number) => {
-          child.id++
-          child.newH = item.height + childIndex * smallHeight;
-          if (child.newH == item.height) {
-            if (child.newH == h / 2) {
+    if (state.hasDrawList[item.id - 2]) {
+      return;
+    } else {
+      if (item.isMainWork) {
+        count++;
+        item.height = h / 2 + smallHeight * (count - 1);
+        ctxCenter.clearRect(startX + (item.totalTime - 1) * w - radius, item.height - radius, radius * 2, radius * 2)
+        drawCircle(
+          ctxCenter,
+          startX + (item.totalTime - 1) * w,
+          item.height,
+          item.id,
+        );
+        if (item.newChildren && item.newChildren.length > 0) {
+          const notMainWorkArray = item.newChildren.filter((item: any) => {
+            return !item.isMainWork;
+          });
+          const mainWorkArray = item.newChildren.filter((item: any) => {
+            return item.isMainWork;
+          });
+          mainWorkArray.map((child: any, childIndex: number) => {
+            child.newH = item.height + childIndex * smallHeight;
+            if (child.newH == item.height) {
+              if (child.newH == h / 2) {
+                drawArrow(
+                  ctxCenter,
+                  startX + (item.totalTime - 1) * w + radius,
+                  item.height,
+                  startX + (child.totalTime - 1) * w - radius,
+                  h / 2,
+                  1,
+                  "#333",
+                  child.workTime * w,
+                  child.workTime,
+                  h / 2,
+                  child.workName,
+                  child.freeTime
+                );
+              } else {
+                drawArrow(
+                  ctxCenter,
+                  startX + (item.totalTime - 1) * w,
+                  item.height - radius,
+                  startX + (child.totalTime - 1 - child.workTime) * w,
+                  h / 2 + radius,
+                  1,
+                  "#333",
+                  0,
+                  0,
+                  h / 2,
+                  '',
+                  child.freeTime
+                );
+              }
+            } else {
               drawArrow(
                 ctxCenter,
-                startX + (item.totalTime - 1) * w + radius,
-                item.height,
+                startX + (item.totalTime - 1) * w,
+                item.height + radius,
                 startX + (child.totalTime - 1) * w - radius,
-                h / 2,
+                child.newH,
                 1,
                 "#333",
                 child.workTime * w,
@@ -452,182 +282,159 @@ const drawFun = (value: any, h) => {
                 h / 2,
                 child.workName,
                 child.freeTime
+              );
+            }
+          });
+          notMainWorkArray.map((notMainChild: any, index: number) => {
+            newIndex++
+            notMainChild.newH =
+              (index + 1) % 2 == 0
+                ? ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) * smallHeight +
+                  item.height
+                : -1 *
+                    ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) *
+                    smallHeight +
+                  h / 2;
+            drawCircle(
+              ctxCenter,
+              startX + (notMainChild.totalTime - 1) * w,
+              notMainChild.newH,
+              notMainChild.id
+            );
+            if (notMainChild.newH > h / 2) {
+              drawArrow(
+                ctxCenter,
+                startX + (item.totalTime - 1) * w,
+                h / 2 + radius,
+                startX + (notMainChild.totalTime - 1) * w - radius,
+                notMainChild.newH,
+                1,
+                "#333",
+                notMainChild.workTime * w,
+                notMainChild.workTime,
+                h / 2,
+                notMainChild.workName,
+                notMainChild.freeTime
               );
             } else {
               drawArrow(
                 ctxCenter,
                 startX + (item.totalTime - 1) * w,
-                item.height - radius,
-                startX + (child.totalTime - 1) * w,
-                h / 2 + radius,
+                h / 2 - radius,
+                startX + (notMainChild.totalTime - 1) * w - radius,
+                notMainChild.newH,
                 1,
                 "#333",
-                child.workTime * w,
-                child.workTime,
+                notMainChild.workTime * w,
+                notMainChild.workTime,
                 h / 2,
-                child.workName,
-                child.freeTime
+                notMainChild.workName,
+                notMainChild.freeTime
               );
             }
-          } else {
-            drawArrow(
-              ctxCenter,
-              startX + (item.totalTime - 1) * w,
-              item.height + radius,
-              startX + (child.totalTime - 1) * w - radius,
-              child.newH,
-              1,
-              "#333",
-              child.workTime * w,
-              child.workTime,
-              h / 2,
-              child.workName,
-              child.freeTime
-            );
-          }
-        });
-        notMainWorkArray.map((notMainChild: any, index: number) => {
-          newIndex++
-          notMainChild.newH =
-            (index + 1) % 2 == 0
-              ? ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) * smallHeight +
-                item.height
-              : -1 *
-                  ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) *
-                  smallHeight +
-                h / 2;
-          drawCircle(
-            ctxCenter,
-            startX + (notMainChild.totalTime - 1) * w,
-            notMainChild.newH,
-            newIndex < notMainChild.id ? notMainChild.id : newIndex
-          );
-          if (notMainChild.newH > h / 2) {
-            drawArrow(
-              ctxCenter,
-              startX + (item.totalTime - 1) * w,
-              h / 2 + radius,
-              startX + (notMainChild.totalTime - 1) * w - radius,
-              notMainChild.newH,
-              1,
-              "#333",
-              notMainChild.workTime * w,
-              notMainChild.workTime,
-              h / 2,
-              notMainChild.workName,
-              notMainChild.freeTime
-            );
-          } else {
-            drawArrow(
-              ctxCenter,
-              startX + (item.totalTime - 1) * w,
-              h / 2 - radius,
-              startX + (notMainChild.totalTime - 1) * w - radius,
-              notMainChild.newH,
-              1,
-              "#333",
-              notMainChild.workTime * w,
-              notMainChild.workTime,
-              h / 2,
-              notMainChild.workName,
-              notMainChild.freeTime
-            );
-          }
-        });
-        mainWorkArray.map((item: any) => {
-          item.children.map((newItem: any) => {
-            if (item.id === newItem.id) {
-              newItem.newH = item.height;
-            }
           });
-        });
-        notMainWorkArray.map((item: any) => {
-          item.children.map((newItem: any) => {
-            if (item.id === newItem.id) {
-              newItem.newH = item.newH;
-            }
+          mainWorkArray.map((item: any) => {
+            item.newChildren.map((newItem: any) => {
+              if (item.id === newItem.id) {
+                newItem.newH = item.height;
+              }
+            });
           });
-        });
-        drawFun(item.children, h);
-      }
-    } else {
-      if (item.children && item.children.length > 0) {
-        item.children.forEach((newItem: any) => {
-          newItem.newH = item.newH;
-          if (!newItem.isMainWork) {
-            if (newItem.newH < h / 4) {
-              drawArrow(
+          notMainWorkArray.map((item: any) => {
+            item.newChildren.map((newItem: any) => {
+              if (item.id === newItem.id) {
+                newItem.newH = item.newH;
+              }
+            });
+          });
+          drawFun(item.newChildren, h);
+        }
+      } else {
+        if (item.newChildren && item.newChildren.length > 0) {
+          item.newChildren.forEach((newItem: any) => {
+            newItem.newH = item.newH;
+            if (!newItem.isMainWork) {
+              if (newItem.newH < h / 4) {
+                drawArrow(
+                    ctxCenter,
+                    startX + (item.totalTime - 1) * w + radius,
+                    item.newH,
+                    startX + (newItem.totalTime - 1) * w,
+                    h / 2 - radius,
+                    1,
+                    "#333",
+                    newItem.workTime * w,
+                    newItem.workTime,
+                    h / 2,
+                    newItem.workName,
+                    newItem.freeTime
+                );
+              } else {
+                drawCircle(
+                    ctxCenter,
+                    startX + (newItem.totalTime - 1) * w,
+                    item.newH,
+                    newItem.id
+                );
+                drawArrow(
+                    ctxCenter,
+                    startX + (item.totalTime - 1) * w + radius,
+                    item.newH,
+                    startX + (newItem.totalTime - 1) * w - radius,
+                    item.newH,
+                    1,
+                    "#333",
+                    newItem.workTime * w,
+                    newItem.workTime,
+                    h / 2,
+                    newItem.workName,
+                    newItem.freeTime
+                );
+              }
+            } else {
+              if (item.newH > h / 2) {
+                drawArrow(
+                  ctxCenter,
+                  startX + (item.totalTime - 1) * w,
+                  item.newH - radius,
+                  startX + (newItem.totalTime - 1 - newItem.workTime) * w,
+                  h / 2 + radius,
+                  1,
+                  "#333",
+                  0,
+                  0,
+                  h / 2,
+                  '',
+                  newItem.freeTime
+                );
+              } else {
+                drawArrow(
                   ctxCenter,
                   startX + (item.totalTime - 1) * w,
                   item.newH + radius,
-                  startX + (newItem.totalTime - 1) * w,
-                  item.newH + 75 - radius,
+                  startX + (newItem.totalTime - 1  - newItem.workTime) * w,
+                  h / 2 - radius,
                   1,
                   "#333",
-                  newItem.workTime * w,
-                  newItem.workTime,
+                  0,
+                  0,
                   h / 2,
-                  newItem.workName,
+                  '',
                   newItem.freeTime
-              );
-            } else {
-              drawCircle(
-                  ctxCenter,
-                  startX + (newItem.totalTime - 1) * w,
-                  item.newH,
-                  newIndex < newItem.id ? newItem.id : newIndex
-              );
-              drawArrow(
-                  ctxCenter,
-                  startX + (item.totalTime - 1) * w + radius,
-                  item.newH,
-                  startX + (newItem.totalTime - 1) * w - radius,
-                  item.newH,
-                  1,
-                  "#333",
-                  newItem.workTime * w,
-                  newItem.workTime,
-                  h / 2,
-                  newItem.workName,
-                  newItem.freeTime
-              );
+                );
+              }
             }
+          });
+          const even = (element) => state.hasDrawList[element.id]
+          console.log(item.newChildren.some(even))
+          if (item.newChildren.some(even)) {
+            return
           } else {
-            if (item.newH > h / 2) {
-              drawArrow(
-                ctxCenter,
-                startX + (item.totalTime - 1) * w,
-                item.newH - radius,
-                startX + (newItem.totalTime - 1) * w,
-                h / 2 + radius,
-                1,
-                "#333",
-                newItem.workTime * w,
-                newItem.workTime,
-                h / 2,
-                newItem.workName,
-                newItem.freeTime
-              );
-            } else {
-              drawArrow(
-                ctxCenter,
-                startX + (item.totalTime - 1) * w,
-                item.newH + radius,
-                startX + (newItem.totalTime - 1) * w,
-                h / 2 - radius,
-                1,
-                "#333",
-                newItem.workTime * w,
-                newItem.workTime,
-                h / 2,
-                newItem.workName,
-                newItem.freeTime
-              );
-            }
+            drawFun(item.newChildren, h)
           }
-        });
+        }
       }
-      drawFun(item.children, h);
+      state.hasDrawList[item.id - 2] = true
     }
   });
 };
@@ -687,19 +494,26 @@ const handleDiffChange = () => {
     </el-form>
   </div>
   <div>
-    <canvas id="canvas" width="1040" height="40" style="padding: 20px"></canvas>
-    <canvas
+    <div>
+      <canvas id="canvas" width="1040" height="40" style="padding: 20px"></canvas>
+      <canvas
       id="canvasCenter"
       width="1040"
       height="440"
       style="padding: 0 20px"
     ></canvas>
-    <canvas
+      <canvas
       id="canvasTwo"
       width="1040"
       height="40"
       style="padding: 20px"
     ></canvas>
+    </div>
+      <el-table :data="state.tableData" style="width: 100%" height="100%">
+          <el-table-column label="序号"  type="index"></el-table-column>
+          <el-table-column label="序号"></el-table-column>
+          <el-table-column label="序号"></el-table-column>
+      </el-table>
   </div>
 </template>
 
