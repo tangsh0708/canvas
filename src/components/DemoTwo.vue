@@ -166,7 +166,6 @@ const init = () => {
   const array = newArray.filter((item: any) => {
     return !item.children
   })
-  console.log(array, 'array')
   array.map((item: any, index: number) => {
     if (index == 0) {
       pushArrayFun(item)
@@ -207,6 +206,7 @@ const drawMainLine = (canvasCenter, ctxCenter) => {
   drawCircle(ctxCenter, startX, h / 2, 1);
   console.log(state.dataList, 'dataList')
   drawFun(state.dataList, h);
+  console.log(state.hasDrawList, 'drawList')
 };
 let newIndex = 0
 const drawFun = (value: any, h) => {
@@ -214,9 +214,9 @@ const drawFun = (value: any, h) => {
   let count = 0;
   // if (value.len)
   value.forEach((item: any) => {
-    if (state.hasDrawList[item.id - 2]) {
-      return;
-    } else {
+    // if (state.hasDrawList[item.id - 3]) {
+    //   return;
+    // } else {
       if (item.isMainWork) {
         count++;
         item.height = h / 2 + smallHeight * (count - 1);
@@ -425,17 +425,33 @@ const drawFun = (value: any, h) => {
               }
             }
           });
-          const even = (element) => state.hasDrawList[element.id]
-          console.log(item.newChildren.some(even))
+          const even = (element) => state.hasDrawList[(element.id)]
           if (item.newChildren.some(even)) {
+            // console.log()
+            // console.log(item.newChildren[0].id - 2)
+            // console.log(item, 'test')
+            // drawArrow(
+            //     ctxCenter,
+            //     startX + (item.totalTime - 1) * w,
+            //     item.newH + radius,
+            //     startX + (item.newChildren[0].totalTime - 1  - item.newChildren[0].workTime) * w,
+            //     h / 2 - radius,
+            //     1,
+            //     "#333",
+            //     0,
+            //     0,
+            //     h / 2,
+            //     '',
+            //     item.newChildren[0].freeTime
+            // );
             return
           } else {
             drawFun(item.newChildren, h)
           }
         }
       }
-      state.hasDrawList[item.id - 2] = true
-    }
+      state.hasDrawList[item.id - 3] = true
+    // }
   });
 };
 onMounted(() => {
