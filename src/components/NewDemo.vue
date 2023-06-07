@@ -169,10 +169,8 @@ const drawFun = (value: any, h) => {
         drawFun(item.children, h)
       }
     } else {
-      console.log('test')
       if (item.children && item.children.length > 0) {
         item.children.forEach((newItem: any) => {
-          console.log(newItem, 'stss')
           newItem.newH = item.newH
           if (!newItem.isMainWork) {
             drawCircle(ctxCenter, startX + (newItem.totalTime - 1) * w, item.newH, newItem.id)

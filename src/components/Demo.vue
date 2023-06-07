@@ -21,7 +21,6 @@ function drawDashedLine(ctx: any, canvas: any) {
   ctx.strokeStyle = "#ffffff";
   ctx.lineWidth = 4;
   ctx.beginPath();
-  console.log(canvas.height, "sss");
   ctx.moveTo(50 / 2, canvas.height);
   ctx.lineTo(50 / 2, 0);
   ctx.stroke();

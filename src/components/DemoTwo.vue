@@ -126,7 +126,7 @@ const state = reactive({
                 { id: 8, workIndex: '1.1.3.3', workName: '工作3-3', workTime: 7, freeTime: 0, totalCountTime: 3, startTime: '2021-01-08', endTime: '2021-01-14', afterWork: [10], isMainWork: false, children: null },
                 { id: 9, workIndex: '1.1.3.4', workName: '工作3-4', workTime: 15, freeTime: 5, totalCountTime: 8, startTime: '2021-01-08', endTime: '2021-01-22', afterWork: [11], isMainWork: false, children: null},
                 { id: 10, workIndex: '1.1.3.5', workName: '工作3-5', workTime: 13, freeTime: 0, totalCountTime: 3, startTime: '2021-01-15', endTime: '2021-01-27', afterWork: [11], isMainWork: false, children: null},
-                { id: 11, workIndex: '1.1.3.6', workName: '工作3-6', workTime: 10, freeTime: 0, totalCountTime: 0, startTime: '2021-01-28', endTime: '2021-02-03', afterWork: [14], isMainWork: false, children: null},
+                { id: 11, workIndex: '1.1.3.6', workName: '工作3-6', workTime: 7, freeTime: 3, totalCountTime: 3, startTime: '2021-01-28', endTime: '2021-02-03', afterWork: [14], isMainWork: false, children: null},
                 { id: 12, workIndex: '1.1.3.7', workName: '工作3-7', workTime: 10, freeTime: 0, totalCountTime: 0, startTime: '2021-01-28', endTime: '2021-02-06', afterWork: [14], isMainWork: true, children: null},
                 { id: 14, workIndex: '1.1.3.8', workName: '工作3-8', workTime: 10, freeTime: 0, totalCountTime: 0, startTime: '2021-02-07', endTime: '2021-02-16', afterWork: [15], isMainWork: true, children: null},
               ] },
@@ -142,6 +142,7 @@ const state = reactive({
   dataList: [],
   hasDrawList: [],
 });
+let isDrawArray = []
 const init = () => {
   canvas = document.getElementById("canvas") as HTMLCanvasElement;
   context = canvas.getContext("2d") as CanvasRenderingContext2D;
@@ -163,7 +164,6 @@ const init = () => {
   const array = newArray.filter((item: any) => {
     return !item.children
   })
-
   array.map((item: any, index: number) => {
     if (index == 0) {
       pushArrayFun(item)
@@ -214,6 +214,8 @@ let newIndex = 0
 const drawFun = (value: any, h) => {
   const smallHeight = 50;
   let count = 0;
+  newIndex = 0;
+
   value.forEach((item: any) => {
       if (item.isMainWork) {
         count++;
@@ -285,14 +287,13 @@ const drawFun = (value: any, h) => {
           });
           notMainWorkArray.map((notMainChild: any, index: number) => {
             newIndex++
-            notMainChild.newH =
-              (index + 1) % 2 == 0
-                ? ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) * smallHeight +
-                  item.height
-                : -1 *
-                    ((index + 1) / 2 >= 1 ? (index + 1) / 2 + 1 : 1) *
-                    smallHeight +
-                  h / 2;
+            if (notMainChild.newChildren) {
+              if (notMainChild.newChildren[0].isMainWork) {
+                notMainChild.newH = -1 * ((index + 1) / 2 + 1) * smallHeight + h / 2
+              } else {
+                notMainChild.newH = ((index) / 2 * 1.5 + 1) * smallHeight + item.height
+              }
+            }
             drawCircle(
               ctxCenter,
               startX + (notMainChild.totalTime - 1) * w,
@@ -353,7 +354,6 @@ const drawFun = (value: any, h) => {
             newItem.newH = item.newH;
             if (!newItem.isMainWork) {
               if (newItem.newH < h / 4) {
-                  console.log(newItem, 'test')
                 drawArrow(
                   ctxCenter,
                   startX + (item.totalTime - 1) * w + radius,
@@ -362,7 +362,7 @@ const drawFun = (value: any, h) => {
                   h / 2 - radius,
                   1,
                   "#333",
-                  newItem.workTime * w,
+                  newItem.workTime * w - radius,
                     newItem.workTime,
                   h / 2,
                   newItem.workName,
@@ -383,7 +383,7 @@ const drawFun = (value: any, h) => {
                     item.newH,
                     1,
                     "#333",
-                    newItem.workTime * w,
+                    newItem.workTime * w - radius,
                     newItem.workTime,
                     h / 2,
                     newItem.workName,

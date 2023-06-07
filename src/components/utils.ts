@@ -88,9 +88,11 @@ export function drawArrow(
     }
   } else {
     if (free) {
-
-      // ctx.lineTo(fromX + timerA, toY);
+      // ctx.beginPath()
+      // ctx.moveTo(fromX, fromY)
+      ctx.lineTo(fromX + timerA, toY);
       drawLine(fromX + timerA, fromY, toX, ctx, free);
+      // ctx.closePath()
     } else {
       // ctx.lineTo(toX, fromY)
       ctx.lineTo(toX, toY);
